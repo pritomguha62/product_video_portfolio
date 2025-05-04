@@ -1,0 +1,827 @@
+{% extends 'pub_templates/layouts/base.html' %}
+
+{% load static %}
+
+{% block content %}
+<div class="elementor-element elementor-element-379fc056 e-flex e-con-boxed e-con e-parent" data-id="379fc056" data-element_type="container" id="shortform">
+    <div class="e-con-inner">
+        <div
+            class="elementor-element elementor-element-42fd4a25 elementor-widget__width-initial elementor-widget-mobile__width-inherit elementor-invisible elementor-widget elementor-widget-heading"
+            data-id="42fd4a25"
+            data-element_type="widget"
+            data-settings='{"_animation_delay":450,"_animation":"fadeInUp"}'
+            data-widget_type="heading.default"
+            >
+            <div class="elementor-widget-container">
+                <h2 class="elementor-heading-title elementor-size-default">Video Editing Portfolio</h2>
+            </div>
+        </div>
+        <div
+            class="elementor-element elementor-element-2cc17bc8 elementor-widget__width-initial elementor-widget-tablet__width-initial elementor-widget-mobile__width-inherit elementor-invisible elementor-widget elementor-widget-text-editor"
+            data-id="2cc17bc8"
+            data-element_type="widget"
+            data-settings='{"_animation_delay":600,"_animation":"fadeInUp"}'
+            data-widget_type="text-editor.default"
+            >
+            <div class="elementor-widget-container">
+                <p>Some of my Amazing work</p>
+            </div>
+        </div>
+        <div
+            class="elementor-element elementor-element-7f9e52a ui-borderanim-rotate ui-gradient elementor-invisible elementor-widget elementor-widget-heading"
+            data-id="7f9e52a"
+            data-element_type="widget"
+            data-settings='{"_animation_delay":300,"_animation":"fadeInUp"}'
+            data-widget_type="heading.default"
+            >
+            <div class="elementor-widget-container">
+                <h3 class="elementor-heading-title elementor-size-default"><a href="{% url 'home' %}#shortform">Short Form Content Edits</a></h3>
+            </div>
+        </div>
+        <div
+            class="elementor-element elementor-element-a6cdf00 elementor-widget__width-initial elementor-widget-mobile__width-inherit elementor-invisible elementor-widget elementor-widget-heading"
+            data-id="a6cdf00"
+            data-element_type="widget"
+            data-settings='{"_animation_delay":750,"_animation":"fadeInUp"}'
+            data-widget_type="heading.default"
+            >
+            <div class="elementor-widget-container">
+                <h2 class="elementor-heading-title elementor-size-default">Reel Edits:</h2>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="elementor-element elementor-element-a3854a7 e-grid e-con-boxed elementor-invisible e-con e-parent" style="--e-con-grid-template-rows: repeat(1fr);" data-id="a3854a7" data-element_type="container" data-settings='{"animation_delay":900,"animation":"fadeInUp"}'>
+    <div class="e-con-inner">
+
+        {% for portfolio in portfolios %}
+            {% if portfolio.is_short == 'yes' %}
+                <div class="elementor-element elementor-element-a58550e elementor-widget elementor-widget-video" data-id="a58550e" data-element_type="widget" data-settings='{"video_type":"hosted","controls":"yes"}' data-widget_type="video.default">
+                    <div class="elementor-widget-container">
+                        <div class="e-hosted-video elementor-wrapper elementor-open-inline">
+
+                            {% if portfolio.video.url is not none %}
+                            <video class="elementor-video" src="{{ portfolio.video.url }}" controls="" preload="metadata" controlsList="nodownload"></video>
+                            {% else %}
+                            {{ portfolio.link|safe }}
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+
+            {% endif %}
+        {% endfor %}
+
+        {% comment %} 
+        <div class="elementor-element elementor-element-d636570 elementor-widget elementor-widget-video" data-id="d636570" data-element_type="widget" data-settings='{"video_type":"hosted","controls":"yes"}' data-widget_type="video.default">
+            <div class="elementor-widget-container">
+                <div class="e-hosted-video elementor-wrapper elementor-open-inline">
+                    <video class="elementor-video" src="https://mishacreatives.com/wp-content/uploads/2025/04/vvv.mp4" controls="" preload="metadata" controlsList="nodownload"></video>
+                </div>
+            </div>
+        </div>
+        <div class="elementor-element elementor-element-2702832 elementor-widget elementor-widget-video" data-id="2702832" data-element_type="widget" data-settings='{"video_type":"hosted","controls":"yes"}' data-widget_type="video.default">
+            <div class="elementor-widget-container">
+                <div class="e-hosted-video elementor-wrapper elementor-open-inline">
+                    <video class="elementor-video" src="https://mishacreatives.com/wp-content/uploads/2025/02/v2.mp4" controls="" preload="metadata" controlsList="nodownload"></video>
+                </div>
+            </div>
+        </div>
+        <div class="elementor-element elementor-element-59bdb87 elementor-widget elementor-widget-video" data-id="59bdb87" data-element_type="widget" data-settings='{"video_type":"hosted","controls":"yes"}' data-widget_type="video.default">
+            <div class="elementor-widget-container">
+                <div class="e-hosted-video elementor-wrapper elementor-open-inline">
+                    <video class="elementor-video" src="https://mishacreatives.com/wp-content/uploads/2025/04/v8.mp4" controls="" preload="metadata" controlsList="nodownload"></video>
+                </div>
+            </div>
+        </div>
+        <div class="elementor-element elementor-element-0459a00 elementor-widget elementor-widget-video" data-id="0459a00" data-element_type="widget" data-settings='{"video_type":"hosted","controls":"yes"}' data-widget_type="video.default">
+            <div class="elementor-widget-container">
+                <div class="e-hosted-video elementor-wrapper elementor-open-inline">
+                    <video class="elementor-video" src="https://mishacreatives.com/wp-content/uploads/2025/04/v6.mp4" controls="" preload="metadata" controlsList="nodownload"></video>
+                </div>
+            </div>
+        </div>
+        <div class="elementor-element elementor-element-8d0cec4 elementor-widget elementor-widget-video" data-id="8d0cec4" data-element_type="widget" data-settings='{"video_type":"hosted","controls":"yes"}' data-widget_type="video.default">
+            <div class="elementor-widget-container">
+                <div class="e-hosted-video elementor-wrapper elementor-open-inline">
+                    <video class="elementor-video" src="https://mishacreatives.com/wp-content/uploads/2025/04/v7.mp4" controls="" preload="metadata" controlsList="nodownload"></video>
+                </div>
+            </div>
+        </div>
+        <div class="elementor-element elementor-element-ae8acee elementor-widget elementor-widget-video" data-id="ae8acee" data-element_type="widget" data-settings='{"video_type":"hosted","controls":"yes"}' data-widget_type="video.default">
+            <div class="elementor-widget-container">
+                <div class="e-hosted-video elementor-wrapper elementor-open-inline">
+                    <video class="elementor-video" src="https://mishacreatives.com/wp-content/uploads/2025/02/v1.mp4" controls="" preload="metadata" controlsList="nodownload"></video>
+                </div>
+            </div>
+        </div>
+        <div class="elementor-element elementor-element-bdcb81a elementor-widget elementor-widget-video" data-id="bdcb81a" data-element_type="widget" data-settings='{"video_type":"hosted","controls":"yes"}' data-widget_type="video.default">
+            <div class="elementor-widget-container">
+                <div class="e-hosted-video elementor-wrapper elementor-open-inline">
+                    <video class="elementor-video" src="https://mishacreatives.com/wp-content/uploads/2025/04/vv.mp4" controls="" preload="metadata" controlsList="nodownload"></video>
+                </div>
+            </div>
+        </div>
+        <div class="elementor-element elementor-element-b215e93 elementor-widget elementor-widget-video" data-id="b215e93" data-element_type="widget" data-settings='{"video_type":"hosted","controls":"yes"}' data-widget_type="video.default">
+            <div class="elementor-widget-container">
+                <div class="e-hosted-video elementor-wrapper elementor-open-inline">
+                    <video class="elementor-video" src="https://mishacreatives.com/wp-content/uploads/2025/04/v5.mp4" controls="" preload="metadata" controlsList="nodownload"></video>
+                </div>
+            </div>
+        </div>
+        <div class="elementor-element elementor-element-7cf0ac3 elementor-widget elementor-widget-video" data-id="7cf0ac3" data-element_type="widget" data-settings='{"video_type":"hosted","controls":"yes"}' data-widget_type="video.default">
+            <div class="elementor-widget-container">
+                <div class="e-hosted-video elementor-wrapper elementor-open-inline">
+                    <video class="elementor-video" src="https://mishacreatives.com/wp-content/uploads/2025/04/promo-video.mp4" controls="" preload="metadata" controlsList="nodownload"></video>
+                </div>
+            </div>
+        </div>
+        <div class="elementor-element elementor-element-44f96f0 elementor-widget elementor-widget-video" data-id="44f96f0" data-element_type="widget" data-settings='{"video_type":"hosted","controls":"yes"}' data-widget_type="video.default">
+            <div class="elementor-widget-container">
+                <div class="e-hosted-video elementor-wrapper elementor-open-inline">
+                    <video class="elementor-video" src="https://mishacreatives.com/wp-content/uploads/2025/04/WESTERN-R1.mp4" controls="" preload="metadata" controlsList="nodownload"></video>
+                </div>
+            </div>
+        </div>
+        <div class="elementor-element elementor-element-a477154 elementor-widget elementor-widget-video" data-id="a477154" data-element_type="widget" data-settings='{"video_type":"hosted","controls":"yes"}' data-widget_type="video.default">
+            <div class="elementor-widget-container">
+                <div class="e-hosted-video elementor-wrapper elementor-open-inline">
+                    <video class="elementor-video" src="https://mishacreatives.com/wp-content/uploads/2025/04/serein-R4.mp4" controls="" preload="metadata" controlsList="nodownload"></video>
+                </div>
+            </div>
+        </div>
+        <div class="elementor-element elementor-element-62a94f3 elementor-widget elementor-widget-video" data-id="62a94f3" data-element_type="widget" data-settings='{"video_type":"hosted","controls":"yes"}' data-widget_type="video.default">
+            <div class="elementor-widget-container">
+                <div class="e-hosted-video elementor-wrapper elementor-open-inline">
+                    <video class="elementor-video" src="https://mishacreatives.com/wp-content/uploads/2025/04/RD-portfolio-video.mp4" controls="" preload="metadata" controlsList="nodownload"></video>
+                </div>
+            </div>
+        </div>
+        <div class="elementor-element elementor-element-185a574 elementor-widget elementor-widget-video" data-id="185a574" data-element_type="widget" data-settings='{"video_type":"hosted","controls":"yes"}' data-widget_type="video.default">
+            <div class="elementor-widget-container">
+                <div class="e-hosted-video elementor-wrapper elementor-open-inline">
+                    <video class="elementor-video" src="https://mishacreatives.com/wp-content/uploads/2025/04/neocasa-final_3.mp4" controls="" preload="metadata" controlsList="nodownload"></video>
+                </div>
+            </div>
+        </div>
+        <div class="elementor-element elementor-element-e774de9 elementor-widget elementor-widget-video" data-id="e774de9" data-element_type="widget" data-settings='{"video_type":"hosted","controls":"yes"}' data-widget_type="video.default">
+            <div class="elementor-widget-container">
+                <div class="e-hosted-video elementor-wrapper elementor-open-inline">
+                    <video class="elementor-video" src="https://mishacreatives.com/wp-content/uploads/2025/04/Soar.mp4" controls="" preload="metadata" controlsList="nodownload"></video>
+                </div>
+            </div>
+        </div>
+        <div class="elementor-element elementor-element-8476891 elementor-widget elementor-widget-video" data-id="8476891" data-element_type="widget" data-settings='{"video_type":"hosted","controls":"yes"}' data-widget_type="video.default">
+            <div class="elementor-widget-container">
+                <div class="e-hosted-video elementor-wrapper elementor-open-inline">
+                    <video class="elementor-video" src="https://mishacreatives.com/wp-content/uploads/2025/04/Ad.mp4" controls="" preload="metadata" controlsList="nodownload"></video>
+                </div>
+            </div>
+        </div>
+        {% endcomment %}
+    </div>
+</div>
+{% comment %} <div class="elementor-element elementor-element-e2d2c68 e-grid e-con-boxed elementor-invisible e-con e-parent" data-id="e2d2c68" data-element_type="container" data-settings='{"animation_delay":900,"animation":"fadeInUp"}'>
+    <div class="e-con-inner">
+        <div class="elementor-element elementor-element-969f8e3 elementor-widget elementor-widget-video" data-id="969f8e3" data-element_type="widget" data-settings='{"video_type":"hosted","controls":"yes"}' data-widget_type="video.default">
+            <div class="elementor-widget-container">
+                <div class="e-hosted-video elementor-wrapper elementor-open-inline">
+                    <video class="elementor-video" src="https://mishacreatives.com/wp-content/uploads/2025/04/kids-room-1.mp4" controls="" preload="metadata" controlsList="nodownload"></video>
+                </div>
+            </div>
+        </div>
+    </div>
+</div> {% endcomment %}
+<div class="elementor-element elementor-element-0a6fa6f e-flex e-con-boxed e-con e-parent" data-id="0a6fa6f" data-element_type="container" id="longform">
+    <div class="e-con-inner">
+        <div
+            class="elementor-element elementor-element-f1f97dd ui-borderanim-rotate ui-gradient elementor-invisible elementor-widget elementor-widget-heading"
+            data-id="f1f97dd"
+            data-element_type="widget"
+            data-settings='{"_animation_delay":300,"_animation":"fadeInUp"}'
+            data-widget_type="heading.default"
+            >
+            <div class="elementor-widget-container">
+                <h3 class="elementor-heading-title elementor-size-default"><a href="{% url 'home' %}#longform">Long Form Content Edits</a></h3>
+            </div>
+        </div>
+        <div
+            class="elementor-element elementor-element-ad101fc elementor-widget__width-initial elementor-widget-mobile__width-inherit elementor-invisible elementor-widget elementor-widget-heading"
+            data-id="ad101fc"
+            data-element_type="widget"
+            data-settings='{"_animation_delay":500,"_animation":"fadeInUp"}'
+            data-widget_type="heading.default"
+            >
+            <div class="elementor-widget-container">
+                <h2 class="elementor-heading-title elementor-size-default">Youtube Edits:</h2>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="elementor-element elementor-element-d6e9508 e-grid e-con-boxed elementor-invisible e-con e-parent" data-id="d6e9508" data-element_type="container" data-settings='{"animation_delay":700,"animation":"fadeInUp"}'>
+    <div class="e-con-inner">
+        
+        {% for portfolio in portfolios %}
+            {% if portfolio.is_short == 'no' %}
+
+                {% comment %} <div
+                    class="elementor-element elementor-element-c7b8f2e elementor-widget elementor-widget-video"
+                    data-id="c7b8f2e"
+                    data-element_type="widget"
+                    data-settings='{"youtube_url":"https:\/\/youtu.be\/2vo18twVfPs","video_type":"youtube","controls":"yes"}'
+                    data-widget_type="video.default"
+                    >
+                    <div class="elementor-widget-container">
+                        <div class="elementor-wrapper elementor-open-inline">
+                            <div class="elementor-video"></div>
+                        </div>
+                    </div>
+                </div> {% endcomment %}
+                {% if portfolio.video.url is not none %}
+                <video class="elementor-video" src="{{ portfolio.video.url }}" controls="" preload="metadata" controlsList="nodownload"></video>
+                {% else %}
+                {{ portfolio.link|safe }}
+                {% endif %}
+
+            {% endif %}
+        {% endfor %}
+        
+        {% comment %} <div
+            class="elementor-element elementor-element-c7b8f2e elementor-widget elementor-widget-video"
+            data-id="c7b8f2e"
+            data-element_type="widget"
+            data-settings='{"youtube_url":"https:\/\/youtu.be\/2vo18twVfPs","video_type":"youtube","controls":"yes"}'
+            data-widget_type="video.default"
+            >
+            <div class="elementor-widget-container">
+                <div class="elementor-wrapper elementor-open-inline">
+                    <div class="elementor-video"></div>
+                </div>
+            </div>
+        </div>
+        
+        <div
+            class="elementor-element elementor-element-d87975e elementor-widget elementor-widget-video"
+            data-id="d87975e"
+            data-element_type="widget"
+            data-settings='{"youtube_url":"https:\/\/youtu.be\/8M_7hJY2Djc","video_type":"youtube","controls":"yes"}'
+            data-widget_type="video.default"
+            >
+            <div class="elementor-widget-container">
+                <div class="elementor-wrapper elementor-open-inline">
+                    <div class="elementor-video"></div>
+                </div>
+            </div>
+        </div>
+        <div
+            class="elementor-element elementor-element-e5490ba elementor-widget elementor-widget-video"
+            data-id="e5490ba"
+            data-element_type="widget"
+            data-settings='{"youtube_url":"https:\/\/youtu.be\/LSKe6wEnidA","video_type":"youtube","controls":"yes"}'
+            data-widget_type="video.default"
+            >
+            <div class="elementor-widget-container">
+                <div class="elementor-wrapper elementor-open-inline">
+                    <div class="elementor-video"></div>
+                </div>
+            </div>
+        </div>
+        <div
+            class="elementor-element elementor-element-144b3b1 elementor-widget elementor-widget-video"
+            data-id="144b3b1"
+            data-element_type="widget"
+            data-settings='{"youtube_url":"https:\/\/youtu.be\/eoodWatQ3TM","video_type":"youtube","controls":"yes"}'
+            data-widget_type="video.default"
+            >
+            <div class="elementor-widget-container">
+                <div class="elementor-wrapper elementor-open-inline">
+                    <div class="elementor-video"></div>
+                </div>
+            </div>
+        </div> {% endcomment %}
+
+    </div>
+</div>
+
+{% comment %} <div class="elementor-element elementor-element-a6f4fd1 e-grid e-con-boxed elementor-invisible e-con e-parent" data-id="a6f4fd1" data-element_type="container" data-settings='{"animation_delay":900,"animation":"fadeInUp"}'>
+    <div class="e-con-inner">
+        <div
+            class="elementor-element elementor-element-35c1c4c elementor-widget elementor-widget-video"
+            data-id="35c1c4c"
+            data-element_type="widget"
+            data-settings='{"youtube_url":"https:\/\/youtu.be\/hpy55PJTLcQ","video_type":"youtube","controls":"yes"}'
+            data-widget_type="video.default"
+            >
+            <div class="elementor-widget-container">
+                <div class="elementor-wrapper elementor-open-inline">
+                    <div class="elementor-video"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div> {% endcomment %}
+
+<div
+    class="elementor-section elementor-top-section elementor-element elementor-element-481c2d6 elementor-section-boxed elementor-section-height-default elementor-section-height-default"
+    data-id="481c2d6"
+    data-element_type="section"
+    data-settings='{"animation":"none"}'
+    id="testimonials"
+    >
+    <div class="elementor-container elementor-column-gap-default">
+        <div
+            class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-91e84d7 elementor-invisible"
+            data-id="91e84d7"
+            data-element_type="column"
+            data-settings='{"animation_delay":500,"animation":"fadeInUp"}'
+            >
+            <div class="elementor-widget-wrap elementor-element-populated">
+                <div class="elementor-element elementor-element-aced56e elementor-widget elementor-widget-heading" data-id="aced56e" data-element_type="widget" data-widget_type="heading.default">
+                    <div class="elementor-widget-container">
+                        <h5 class="elementor-heading-title elementor-size-default">TESTIMONIALS</h5>
+                    </div>
+                </div>
+                <div class="elementor-element elementor-element-1b08324 ui-e-a-animate elementor-widget elementor-widget-highlighted-text" data-id="1b08324" data-element_type="widget" data-widget_type="highlighted-text.default">
+                    <div class="elementor-widget-container">
+                        <h2 class="ui-e--highlighted-text">
+                            <span class="ui-e-headline-text elementor-repeater-item-c91f447">Clients</span>
+                            <span class="ui-e-headline-text elementor-repeater-item-b9fd3cd ui-e-headline-stroke7">
+                                <span class="whitespace"></span>
+                                <span>
+                                    <span class="ui-e-headline-text ui-e-headline-highlighted">Feedback</span>
+                                    <span class="uicore-svg-wrapper">
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 150" preserveAspectRatio="none">
+                                            <path d="M15.2 133.3H485" />
+                                        </svg>
+                                    </span>
+                                </span>
+                                <span class="whitespace"> </span>
+                            </span>
+                        </h2>
+                    </div>
+                </div>
+                <div
+                    class="elementor-section elementor-inner-section elementor-element elementor-element-d94940d elementor-section-boxed elementor-section-height-default elementor-section-height-default"
+                    data-id="d94940d"
+                    data-element_type="section"
+                    >
+                    <div class="elementor-container elementor-column-gap-default">
+
+                        {% comment %} <div class="elementor-column elementor-col-33 elementor-inner-column elementor-element elementor-element-8281528" data-id="8281528" data-element_type="column">
+                            <div class="elementor-widget-wrap elementor-element-populated">
+                                <div
+                                    class="elementor-element elementor-element-f7854d5 elementor-widget__width-auto elementor-view-default elementor-widget elementor-widget-icon"
+                                    data-id="f7854d5"
+                                    data-element_type="widget"
+                                    data-widget_type="icon.default"
+                                    >
+                                    <div class="elementor-widget-container">
+                                        <div class="elementor-icon-wrapper">
+                                            <div class="elementor-icon">
+                                                <i aria-hidden="true" class="ti ti-quote-left"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="elementor-element elementor-element-2dbbe6b elementor-widget elementor-widget-text-editor" data-id="2dbbe6b" data-element_type="widget" data-widget_type="text-editor.default">
+                                    <div class="elementor-widget-container">
+                                        Latin derived from Cicero&#8217;s 1st-century BC text De Finibus Bonor et Malorum print.
+                                    </div>
+                                </div>
+                                <div
+                                    class="elementor-element elementor-element-f974744 elementor-widget__width-initial elementor-widget-mobile__width-inherit elementor-widget elementor-widget-heading"
+                                    data-id="f974744"
+                                    data-element_type="widget"
+                                    data-widget_type="heading.default"
+                                    >
+                                    <div class="elementor-widget-container">
+                                        <p class="elementor-heading-title elementor-size-default">Martin Jonas. USA</p>
+                                    </div>
+                                </div>
+                                <div
+                                    class="elementor-element elementor-element-b883acd elementor-icon-list--layout-inline elementor-align-right elementor-widget__width-initial elementor-mobile-align-left elementor-widget-mobile__width-inherit elementor-list-item-link-full_width elementor-widget elementor-widget-icon-list"
+                                    data-id="b883acd"
+                                    data-element_type="widget"
+                                    data-widget_type="icon-list.default"
+                                    >
+                                    <div class="elementor-widget-container">
+                                        <ul class="elementor-icon-list-items elementor-inline-items">
+                                            <li class="elementor-icon-list-item elementor-inline-item">
+                                                <span class="elementor-icon-list-icon">
+                                                    <svg aria-hidden="true" class="e-font-icon-svg e-fas-star" viewBox="0 0 576 512" xmlns="http://www.w3.org/2000/svg">
+                                                        <path
+                                                            d="M259.3 17.8L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0z"
+                                                            ></path>
+                                                    </svg>
+                                                </span>
+                                                <span class="elementor-icon-list-text"></span>
+                                            </li>
+                                            <li class="elementor-icon-list-item elementor-inline-item">
+                                                <span class="elementor-icon-list-icon">
+                                                    <svg aria-hidden="true" class="e-font-icon-svg e-fas-star" viewBox="0 0 576 512" xmlns="http://www.w3.org/2000/svg">
+                                                        <path
+                                                            d="M259.3 17.8L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0z"
+                                                            ></path>
+                                                    </svg>
+                                                </span>
+                                                <span class="elementor-icon-list-text"></span>
+                                            </li>
+                                            <li class="elementor-icon-list-item elementor-inline-item">
+                                                <span class="elementor-icon-list-icon">
+                                                    <svg aria-hidden="true" class="e-font-icon-svg e-fas-star" viewBox="0 0 576 512" xmlns="http://www.w3.org/2000/svg">
+                                                        <path
+                                                            d="M259.3 17.8L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0z"
+                                                            ></path>
+                                                    </svg>
+                                                </span>
+                                                <span class="elementor-icon-list-text"></span>
+                                            </li>
+                                            <li class="elementor-icon-list-item elementor-inline-item">
+                                                <span class="elementor-icon-list-icon">
+                                                    <svg aria-hidden="true" class="e-font-icon-svg e-fas-star" viewBox="0 0 576 512" xmlns="http://www.w3.org/2000/svg">
+                                                        <path
+                                                            d="M259.3 17.8L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0z"
+                                                            ></path>
+                                                    </svg>
+                                                </span>
+                                                <span class="elementor-icon-list-text"></span>
+                                            </li>
+                                            <li class="elementor-icon-list-item elementor-inline-item">
+                                                <span class="elementor-icon-list-icon">
+                                                    <svg aria-hidden="true" class="e-font-icon-svg e-fas-star" viewBox="0 0 576 512" xmlns="http://www.w3.org/2000/svg">
+                                                        <path
+                                                            d="M259.3 17.8L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0z"
+                                                            ></path>
+                                                    </svg>
+                                                </span>
+                                                <span class="elementor-icon-list-text"></span>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div> {% endcomment %}
+
+                        {% for testimonial in testimonials %}
+                            <div class="elementor-column elementor-col-33 elementor-inner-column elementor-element elementor-element-b561f9e" data-id="b561f9e" data-element_type="column">
+                                <div class="elementor-widget-wrap elementor-element-populated">
+                                    <div
+                                        class="elementor-element elementor-element-3721427 elementor-widget__width-auto elementor-view-default elementor-widget elementor-widget-icon"
+                                        data-id="3721427"
+                                        data-element_type="widget"
+                                        data-widget_type="icon.default"
+                                        >
+                                        <div class="elementor-widget-container">
+                                            <div class="elementor-icon-wrapper">
+                                                <div class="elementor-icon">
+                                                    <i aria-hidden="true" class="ti ti-quote-left"></i>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="elementor-element elementor-element-c32d2e8 elementor-widget elementor-widget-text-editor" data-id="c32d2e8" data-element_type="widget" data-widget_type="text-editor.default">
+                                        <div class="elementor-widget-container">
+                                            {% comment %} The passage experienced a surgu popularity during the ios when Letraset used it on their lor bonord dry-transfer sheets &#038; again during the sample. {% endcomment %}
+                                            <p>{{ testimonial.description }}</p>
+                                        </div>
+                                    </div>
+                                    <div
+                                        class="elementor-element elementor-element-9a9886d elementor-widget__width-initial elementor-widget-mobile__width-inherit elementor-widget elementor-widget-heading"
+                                        data-id="9a9886d"
+                                        data-element_type="widget"
+                                        data-widget_type="heading.default"
+                                        >
+                                        <div class="elementor-widget-container">
+                                            <p class="elementor-heading-title elementor-size-default">{{ testimonial.title }}</p>
+                                        </div>
+                                    </div>
+                                    <div
+                                        class="elementor-element elementor-element-00cb78b elementor-icon-list--layout-inline elementor-align-right elementor-widget__width-initial elementor-mobile-align-left elementor-widget-mobile__width-inherit elementor-list-item-link-full_width elementor-widget elementor-widget-icon-list"
+                                        data-id="00cb78b"
+                                        data-element_type="widget"
+                                        data-widget_type="icon-list.default"
+                                        >
+                                        <div class="elementor-widget-container">
+                                            {% comment %} <ul class="elementor-icon-list-items elementor-inline-items">
+                                                <li class="elementor-icon-list-item elementor-inline-item">
+                                                    <span class="elementor-icon-list-icon">
+                                                        <svg aria-hidden="true" class="e-font-icon-svg e-fas-star" viewBox="0 0 576 512" xmlns="http://www.w3.org/2000/svg">
+                                                            <path
+                                                                d="M259.3 17.8L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0z"
+                                                                ></path>
+                                                        </svg>
+                                                    </span>
+                                                    <span class="elementor-icon-list-text"></span>
+                                                </li>
+                                                <li class="elementor-icon-list-item elementor-inline-item">
+                                                    <span class="elementor-icon-list-icon">
+                                                        <svg aria-hidden="true" class="e-font-icon-svg e-fas-star" viewBox="0 0 576 512" xmlns="http://www.w3.org/2000/svg">
+                                                            <path
+                                                                d="M259.3 17.8L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0z"
+                                                                ></path>
+                                                        </svg>
+                                                    </span>
+                                                    <span class="elementor-icon-list-text"></span>
+                                                </li>
+                                                <li class="elementor-icon-list-item elementor-inline-item">
+                                                    <span class="elementor-icon-list-icon">
+                                                        <svg aria-hidden="true" class="e-font-icon-svg e-fas-star" viewBox="0 0 576 512" xmlns="http://www.w3.org/2000/svg">
+                                                            <path
+                                                                d="M259.3 17.8L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0z"
+                                                                ></path>
+                                                        </svg>
+                                                    </span>
+                                                    <span class="elementor-icon-list-text"></span>
+                                                </li>
+                                                <li class="elementor-icon-list-item elementor-inline-item">
+                                                    <span class="elementor-icon-list-icon">
+                                                        <svg aria-hidden="true" class="e-font-icon-svg e-fas-star" viewBox="0 0 576 512" xmlns="http://www.w3.org/2000/svg">
+                                                            <path
+                                                                d="M259.3 17.8L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0z"
+                                                                ></path>
+                                                        </svg>
+                                                    </span>
+                                                    <span class="elementor-icon-list-text"></span>
+                                                </li>
+                                                <li class="elementor-icon-list-item elementor-inline-item">
+                                                    <span class="elementor-icon-list-icon">
+                                                        <svg aria-hidden="true" class="e-font-icon-svg e-far-star" viewBox="0 0 576 512" xmlns="http://www.w3.org/2000/svg">
+                                                            <path
+                                                                d="M528.1 171.5L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6zM388.6 312.3l23.7 138.4L288 385.4l-124.3 65.3 23.7-138.4-100.6-98 139-20.2 62.2-126 62.2 126 139 20.2-100.6 98z"
+                                                                ></path>
+                                                        </svg>
+                                                    </span>
+                                                    <span class="elementor-icon-list-text"></span>
+                                                </li>
+                                            </ul> {% endcomment %}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        {% endfor %}
+
+                        {% comment %} <div class="elementor-column elementor-col-33 elementor-inner-column elementor-element elementor-element-7378e1d" data-id="7378e1d" data-element_type="column">
+                            <div class="elementor-widget-wrap elementor-element-populated">
+                                <div
+                                    class="elementor-element elementor-element-ca63bb7 elementor-widget__width-auto elementor-view-default elementor-widget elementor-widget-icon"
+                                    data-id="ca63bb7"
+                                    data-element_type="widget"
+                                    data-widget_type="icon.default"
+                                    >
+                                    <div class="elementor-widget-container">
+                                        <div class="elementor-icon-wrapper">
+                                            <div class="elementor-icon">
+                                                <i aria-hidden="true" class="ti ti-quote-left"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="elementor-element elementor-element-7dcfff8 elementor-widget elementor-widget-text-editor" data-id="7dcfff8" data-element_type="widget" data-widget_type="text-editor.default">
+                                    <div class="elementor-widget-container">
+                                        From its medieval origins digital print everything there is know about ubiquitous lorem ip surgue cicer elit.
+                                    </div>
+                                </div>
+                                <div
+                                    class="elementor-element elementor-element-9898ce5 elementor-widget__width-initial elementor-widget-mobile__width-inherit elementor-widget elementor-widget-heading"
+                                    data-id="9898ce5"
+                                    data-element_type="widget"
+                                    data-widget_type="heading.default"
+                                    >
+                                    <div class="elementor-widget-container">
+                                        <p class="elementor-heading-title elementor-size-default">Jubayer Hasan. KSA</p>
+                                    </div>
+                                </div>
+                                <div
+                                    class="elementor-element elementor-element-9847a4f elementor-icon-list--layout-inline elementor-align-right elementor-widget__width-initial elementor-mobile-align-left elementor-widget-mobile__width-inherit elementor-list-item-link-full_width elementor-widget elementor-widget-icon-list"
+                                    data-id="9847a4f"
+                                    data-element_type="widget"
+                                    data-widget_type="icon-list.default"
+                                    >
+                                    <div class="elementor-widget-container">
+                                        <ul class="elementor-icon-list-items elementor-inline-items">
+                                            <li class="elementor-icon-list-item elementor-inline-item">
+                                                <span class="elementor-icon-list-icon">
+                                                    <svg aria-hidden="true" class="e-font-icon-svg e-fas-star" viewBox="0 0 576 512" xmlns="http://www.w3.org/2000/svg">
+                                                        <path
+                                                            d="M259.3 17.8L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0z"
+                                                            ></path>
+                                                    </svg>
+                                                </span>
+                                                <span class="elementor-icon-list-text"></span>
+                                            </li>
+                                            <li class="elementor-icon-list-item elementor-inline-item">
+                                                <span class="elementor-icon-list-icon">
+                                                    <svg aria-hidden="true" class="e-font-icon-svg e-fas-star" viewBox="0 0 576 512" xmlns="http://www.w3.org/2000/svg">
+                                                        <path
+                                                            d="M259.3 17.8L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0z"
+                                                            ></path>
+                                                    </svg>
+                                                </span>
+                                                <span class="elementor-icon-list-text"></span>
+                                            </li>
+                                            <li class="elementor-icon-list-item elementor-inline-item">
+                                                <span class="elementor-icon-list-icon">
+                                                    <svg aria-hidden="true" class="e-font-icon-svg e-fas-star" viewBox="0 0 576 512" xmlns="http://www.w3.org/2000/svg">
+                                                        <path
+                                                            d="M259.3 17.8L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0z"
+                                                            ></path>
+                                                    </svg>
+                                                </span>
+                                                <span class="elementor-icon-list-text"></span>
+                                            </li>
+                                            <li class="elementor-icon-list-item elementor-inline-item">
+                                                <span class="elementor-icon-list-icon">
+                                                    <svg aria-hidden="true" class="e-font-icon-svg e-fas-star" viewBox="0 0 576 512" xmlns="http://www.w3.org/2000/svg">
+                                                        <path
+                                                            d="M259.3 17.8L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0z"
+                                                            ></path>
+                                                    </svg>
+                                                </span>
+                                                <span class="elementor-icon-list-text"></span>
+                                            </li>
+                                            <li class="elementor-icon-list-item elementor-inline-item">
+                                                <span class="elementor-icon-list-icon">
+                                                    <svg aria-hidden="true" class="e-font-icon-svg e-fas-star-half-alt" viewBox="0 0 536 512" xmlns="http://www.w3.org/2000/svg">
+                                                        <path
+                                                            d="M508.55 171.51L362.18 150.2 296.77 17.81C290.89 5.98 279.42 0 267.95 0c-11.4 0-22.79 5.9-28.69 17.81l-65.43 132.38-146.38 21.29c-26.25 3.8-36.77 36.09-17.74 54.59l105.89 103-25.06 145.48C86.98 495.33 103.57 512 122.15 512c4.93 0 10-1.17 14.87-3.75l130.95-68.68 130.94 68.7c4.86 2.55 9.92 3.71 14.83 3.71 18.6 0 35.22-16.61 31.66-37.4l-25.03-145.49 105.91-102.98c19.04-18.5 8.52-50.8-17.73-54.6zm-121.74 123.2l-18.12 17.62 4.28 24.88 19.52 113.45-102.13-53.59-22.38-11.74.03-317.19 51.03 103.29 11.18 22.63 25.01 3.64 114.23 16.63-82.65 80.38z"
+                                                            ></path>
+                                                    </svg>
+                                                </span>
+                                                <span class="elementor-icon-list-text"></span>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div> {% endcomment %}
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div
+    class="elementor-section elementor-top-section elementor-element elementor-element-c9327b7 elementor-section-boxed elementor-section-height-default elementor-section-height-default"
+    data-id="c9327b7"
+    data-element_type="section"
+    data-settings='{"background_background":"classic"}'
+    >
+    <div class="elementor-container elementor-column-gap-default">
+        <div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-eced684" data-id="eced684" data-element_type="column">
+            <div class="elementor-widget-wrap elementor-element-populated">
+                <div
+                    class="elementor-element elementor-element-ffd85db elementor-widget__width-initial elementor-absolute elementor-widget-tablet__width-initial elementor-widget-mobile__width-initial elementor-widget elementor-widget-spacer"
+                    data-id="ffd85db"
+                    data-element_type="widget"
+                    data-settings='{"_position":"absolute"}'
+                    data-widget_type="spacer.default"
+                    >
+                    <div class="elementor-widget-container">
+                        <div class="elementor-spacer">
+                            <div class="elementor-spacer-inner"></div>
+                        </div>
+                    </div>
+                </div>
+                <div
+                    class="elementor-element elementor-element-8ea2933 elementor-widget__width-initial elementor-absolute elementor-widget-tablet__width-initial elementor-widget-mobile__width-initial bdt-backdrop-filter-yes elementor-widget elementor-widget-spacer"
+                    data-id="8ea2933"
+                    data-element_type="widget"
+                    data-settings='{"_position":"absolute"}'
+                    data-widget_type="spacer.default"
+                    >
+                    <div class="elementor-widget-container">
+                        <div class="elementor-spacer">
+                            <div class="elementor-spacer-inner"></div>
+                        </div>
+                    </div>
+                </div>
+                <div
+                    class="elementor-element elementor-element-edb3133 elementor-widget__width-auto elementor-absolute elementor-widget elementor-widget-image"
+                    data-id="edb3133"
+                    data-element_type="widget"
+                    data-settings='{"_position":"absolute"}'
+                    data-widget_type="image.default"
+                    >
+                    <div class="elementor-widget-container">
+                        <img decoding="async" width="48" height="48" src="https://mishacreatives.com/wp-content/uploads/2025/02/Personal-Portfolio-Path-6.webp" class="attachment-full size-full wp-image-274" alt="" />
+                    </div>
+                </div>
+                <div
+                    class="elementor-element elementor-element-8b01f5d elementor-widget__width-auto elementor-absolute elementor-widget elementor-widget-image"
+                    data-id="8b01f5d"
+                    data-element_type="widget"
+                    data-settings='{"_position":"absolute"}'
+                    data-widget_type="image.default"
+                    >
+                    <div class="elementor-widget-container">
+                        <img decoding="async" width="71" height="41" src="https://mishacreatives.com/wp-content/uploads/2025/02/Personal-Portfolio-Path-2-1.webp" class="attachment-full size-full wp-image-275" alt="" />
+                    </div>
+                </div>
+                <div
+                    class="elementor-element elementor-element-15262ee elementor-widget__width-auto elementor-absolute elementor-widget elementor-widget-image"
+                    data-id="15262ee"
+                    data-element_type="widget"
+                    data-settings='{"_position":"absolute"}'
+                    data-widget_type="image.default"
+                    >
+                    <div class="elementor-widget-container">
+                        <img decoding="async" width="117" height="123" src="https://mishacreatives.com/wp-content/uploads/2025/02/Personal-Portfolio-Path-3-1.webp" class="attachment-full size-full wp-image-277" alt="" />
+                    </div>
+                </div>
+                <section
+                    class="elementor-section elementor-inner-section elementor-element elementor-element-dbc0e68 elementor-section-boxed elementor-section-height-default elementor-section-height-default elementor-invisible"
+                    data-id="dbc0e68"
+                    data-element_type="section"
+                    data-settings='{"background_background":"classic","animation":"fadeInUp","animation_delay":500}'
+                    >
+                    <div class="elementor-container elementor-column-gap-default">
+                        <div class="elementor-column elementor-col-50 elementor-inner-column elementor-element elementor-element-f557f07" data-id="f557f07" data-element_type="column">
+                            <div class="elementor-widget-wrap elementor-element-populated">
+                                <div
+                                    class="elementor-element elementor-element-59c2f0e ui-e-a-animate elementor-widget elementor-widget-highlighted-text"
+                                    data-id="59c2f0e"
+                                    data-element_type="widget"
+                                    data-widget_type="highlighted-text.default"
+                                    >
+                                    <div class="elementor-widget-container">
+                                        <h2 class="ui-e--highlighted-text">
+                                            <span class="ui-e-headline-text elementor-repeater-item-c91f447">Let's</span>
+                                            <span class="ui-e-headline-text elementor-repeater-item-b9fd3cd ui-e-headline-stroke7">
+                                                <span class="whitespace"></span>
+                                                <span>
+                                                    <span class="ui-e-headline-text ui-e-headline-highlighted">Connect</span>
+                                                    <span class="uicore-svg-wrapper">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 150" preserveAspectRatio="none">
+                                                            <path d="M15.2 133.3H485" />
+                                                        </svg>
+                                                    </span>
+                                                </span>
+                                                <span class="whitespace"> </span>
+                                            </span>
+                                        </h2>
+                                    </div>
+                                </div>
+                                <div
+                                    class="elementor-element elementor-element-7fde97a elementor-widget__width-initial elementor-widget-mobile__width-inherit elementor-widget elementor-widget-text-editor"
+                                    data-id="7fde97a"
+                                    data-element_type="widget"
+                                    data-widget_type="text-editor.default"
+                                    >
+                                    <div class="elementor-widget-container">
+                                        <p>Ready to take your brand to the next level? Let’s connect and make it happen.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="elementor-column elementor-col-50 elementor-inner-column elementor-element elementor-element-4d1b00d" data-id="4d1b00d" data-element_type="column" id="contact-me">
+                            <div class="elementor-widget-wrap elementor-element-populated">
+                                <div class="elementor-element elementor-element-ea015bb elementor-widget elementor-widget-bdt-contact-form" data-id="ea015bb" data-element_type="widget" data-widget_type="bdt-contact-form.default">
+                                    <div class="elementor-widget-container">
+                                        <div class="bdt-contact-form bdt-contact-form-skin-default">
+                                            <div class="elementor-form-fields-wrapper">
+                                                <div class="bdt-contact-form-wrapper">
+                                                    <form class="bdt-contact-form-form bdt-form-stacked bdt-grid bdt-grid-small without-recaptcha" data-bdt-grid="" action="{% url "contact_us_email" %}" method="post">
+                                                        {% csrf_token %}
+                                                        <div class="bdt-field-group elementor-field-required bdt-width-1-1">
+                                                            <div class="bdt-form-controls">
+                                                                <input type="text" name="name" placeholder="Your Name" class="bdt-input bdt-form-default" required="required" />
+                                                            </div>
+                                                        </div>
+                                                        <div class="bdt-field-group elementor-field-required bdt-width-1-1">
+                                                            <div class="bdt-form-controls">
+                                                                <input type="email" name="email" placeholder="example@email.com" class="bdt-input bdt-form-default" required="required" />
+                                                            </div>
+                                                        </div>
+                                                        <div class="bdt-field-group bdt-width-1-1 elementor-field-required">
+                                                            <div class="bdt-form-controls">
+                                                                <textarea name="message" rows="5" placeholder="Your Message Here" class="bdt-textarea bdt-form-default" required="required"></textarea>
+                                                            </div>
+                                                        </div>
+                                                        {% comment %} <input type="hidden" class="widget_id" name="widget_id" value="ea015bb" />
+                                                        <input type="hidden" name="bdt-sf-ea015bb" value="true" />
+                                                        <input type="hidden" class="page_id" name="page_id" value="625" /> {% endcomment %}
+                                                        <div class="elementor-field-type-submit bdt-field-group bdt-flex bdt-width-1-1">
+                                                            <button type="submit" class="elementor-button bdt-button bdt-button-primary" name="submit">
+                                                            <span> Send Message </span>
+                                                            </button>
+                                                        </div>
+                                                        {% comment %} <input name="_wpnonce" value="cfe4cfa3e5" type="hidden" />
+                                                        <input type="hidden" name="action" value="element_pack_contact_form" /> {% endcomment %}
+                                                    </form>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+            
+            

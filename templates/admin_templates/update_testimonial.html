@@ -1,0 +1,40 @@
+{% extends "admin_templates/layouts/admin_base.html" %}
+
+{% block content %}
+
+
+    <form method="POST" enctype="multipart/form-data" action="{% url 'admin_panel.update_testimonial_info' %}">
+        {% csrf_token %}
+        <div class="input-group mb-3">
+            <span class="input-group-text" id="basic-addon1">Title</span>
+            <input type="text" name="title" value="{{ update_testimonial.title }}" class="form-control" placeholder="Title" aria-label="Title" aria-describedby="basic-addon1">
+        </div>
+
+        <div class="input-group mb-3">
+            <span class="input-group-text" id="basic-addon12">Short Description</span>
+            <input type="text" name="short_description" value="{{ update_testimonial.short_description }}" class="form-control" placeholder="Description" aria-label="Short Description" aria-describedby="basic-addon12">
+        </div>
+
+        {% comment %} <div class="input-group mb-3">
+            <span class="input-group-text" id="basic-addon13">Slug</span>
+            <input type="text" name="slug" value="{{ update_testimonial.slug }}" class="form-control" placeholder="Slug" aria-label="Slug" aria-describedby="basic-addon13">
+        </div> {% endcomment %}
+
+
+        <div class="input-group mb-3">
+            <span class="input-group-text">Description</span>
+            <textarea class="form-control" name="description" aria-label="Description">{{ update_testimonial.description }}</textarea>
+        </div>
+
+        <div class="img-uploader-content mb-3">
+            <input type="file" class="filepond form-control" name="image" accept="image/png, image/jpeg, image/gif"/>
+            <input type="hidden" hidden="" required name="id" value="{{ update_testimonial.id }}">
+        </div>
+
+        <div class="img-uploader-content mb-3">
+            <input type="submit" name="save" value="Save" class="mt-4 btn btn-primary">
+        </div>
+    </form>
+
+{% endblock %}
+

@@ -1,0 +1,75 @@
+{% extends "admin_templates/layouts/admin_base.html" %}
+
+{% block content %}
+
+
+    <form method="POST" enctype="multipart/form-data" action="{% url 'admin_panel.add_portfolio_info' %}">
+        {% csrf_token %}
+        <div class="input-group mb-3">
+            <span class="input-group-text" id="basic-addon1">Title</span>
+            <input type="text" name="title" required class="form-control" placeholder="Title" aria-label="Title" aria-describedby="basic-addon1">
+        </div>
+
+        <div class="input-group mb-3">
+            <span class="input-group-text" id="basic-addon12">Short Description</span>
+            <input type="text" name="short_description" class="form-control" placeholder="Description" aria-label="Short Description" aria-describedby="basic-addon12">
+        </div>
+
+        <div class="input-group mb-3">
+            <span class="input-group-text" id="basic-addon13">Slug</span>
+            <input type="text" name="slug" class="form-control" placeholder="Slug" aria-label="Slug" aria-describedby="basic-addon13">
+        </div>
+
+        <div class="input-group mb-3">
+            <span class="input-group-text" id="basic-addon14">Link</span>
+            <input type="text" name="link" class="form-control" placeholder="Link" aria-label="Link" aria-describedby="basic-addon14">
+        </div>
+
+
+        <div class="input-group mb-3">
+            <span class="input-group-text">Description</span>
+            <textarea class="form-control" name="description" aria-label="Description"></textarea>
+        </div>
+
+        {% comment %} <div class="input-group mb-3">
+            <span class="input-group-text">Service</span>
+            <select name="service" id="select-beast" class="form-select" required placeholder="Select a person..." autocomplete="off">
+
+                <option value="">Select a service...</option>
+                {% for service in services %}
+                    <option value="{{ service.id }}">{{ service.title }}</option>
+                {% endfor %}
+            </select>
+
+        </div> {% endcomment %}
+
+        <div class="img-uploader-content mb-3">
+            {% comment %} <span class="input-group">Image</span>
+            <input type="file" class="filepond form-control" name="image"/> {% endcomment %}
+            <input type="checkbox" name="is_short" id="is_short" value="1" checked> <label for="is_short">Short</label>
+        </div>
+
+        <div class="video-uploader-content mb-3">
+            <span class="input-group">Video</span>
+            <input type="file" class="filepond form-control" name="video"/>
+        </div>
+
+
+        <div class="input-group mb-3">
+            <input type="submit" name="save" value="Save" class="mt-4 btn btn-primary">
+        </div>
+    </form>
+
+<script>
+
+new TomSelect("#select-beast",{
+    create: true,
+    sortField: {
+        field: "text",
+        direction: "asc"
+    }
+});
+</script>
+
+{% endblock %}
+

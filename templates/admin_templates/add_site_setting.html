@@ -1,0 +1,126 @@
+{% extends "admin_templates/layouts/admin_base.html" %}
+
+{% block content %}
+
+
+    <form method="POST" enctype="multipart/form-data" action="{% url 'admin_panel.add_site_setting_info' %}">
+        {% csrf_token %}
+        <div class="input-group mb-3">
+            <span class="input-group-text" id="basic-addon1">Title</span>
+            <input type="text" name="title" value="{% if site_setting.title %}{{ site_setting.title }}{% endif %}" class="form-control" placeholder="Title" aria-label="Title" aria-describedby="basic-addon1">
+        </div>
+        
+        <div class="input-group mb-3">
+            <span class="input-group-text" id="basic-addon2">Name</span>
+            <input type="text" name="name" value="{% if site_setting.name %}{{ site_setting.name }}{% endif %}" class="form-control" placeholder="Name" aria-label="Name" aria-describedby="basic-addon2">
+        </div>
+
+        <div class="input-group mb-3">
+            <span class="input-group-text" id="basic-addon12">Short Description</span>
+            <input type="text" name="short_description" value="{% if site_setting.short_description %}{{ site_setting.short_description }}{% endif %}" class="form-control" placeholder="Description" aria-label="Short Description" aria-describedby="basic-addon12">
+        </div>
+
+        <div class="input-group mb-3">
+            <span class="input-group-text" id="basic-addon13">Tagline</span>
+            <input type="text" name="tagline" value="{% if site_setting.tagline %}{{ site_setting.tagline }}{% endif %}" class="form-control" placeholder="Tagline" aria-label="Tagline" aria-describedby="basic-addon13">
+        </div>
+
+        <div class="input-group mb-3">
+            <span class="input-group-text">Description</span>
+            <textarea class="form-control" name="description" value="{% if site_setting.description %}{{ site_setting.description }}{% endif %}" aria-label="Description" placeholder="Description"></textarea>
+        </div>
+
+        <div class="input-group mb-3">
+            <span class="input-group-text" id="basic-addon14">Email</span>
+            <input type="email" name="email" value="{% if site_setting.email %}{{ site_setting.email }}{% endif %}" class="form-control" placeholder="Email" aria-label="Email" aria-describedby="basic-addon14">
+        </div>
+
+        <div class="input-group mb-3">
+            <span class="input-group-text" id="basic-addon15">Phone</span>
+            <input type="text" name="phone" value="{% if site_setting.phone %}{{ site_setting.phone }}{% endif %}" class="form-control" placeholder="Phone" aria-label="Phone" aria-describedby="basic-addon15">
+        </div>
+
+        <div class="input-group mb-3">
+            <span class="input-group-text" id="basic-addon16">Whatsapp</span>
+            <input type="text" name="whatsapp" value="{% if site_setting.whatsapp %}{{ site_setting.whatsapp }}{% endif %}" class="form-control" placeholder="Whatsapp" aria-label="Whatsapp" aria-describedby="basic-addon16">
+        </div>
+
+        <div class="input-group mb-3">
+            <span class="input-group-text" id="basic-addon17">Facebook</span>
+            <input type="text" name="facebook" value="{% if site_setting.facebook %}{{ site_setting.facebook }}{% endif %}" class="form-control" placeholder="Facebook" aria-label="Facebook" aria-describedby="basic-addon17">
+        </div>
+
+        <div class="input-group mb-3">
+            <span class="input-group-text" id="basic-addon18">Linkedin</span>
+            <input type="text" name="linkedin" value="{% if site_setting.linkedin %}{{ site_setting.linkedin }}{% endif %}" class="form-control" placeholder="Linkedin" aria-label="Linkedin" aria-describedby="basic-addon18">
+        </div>
+
+        <div class="input-group mb-3">
+            <span class="input-group-text" id="basic-addon19">Instagram</span>
+            <input type="text" name="instagram" value="{% if site_setting.instagram %}{{ site_setting.instagram }}{% endif %}" class="form-control" placeholder="Instagram" aria-label="Instagram" aria-describedby="basic-addon19">
+        </div>
+
+        <div class="input-group mb-3">
+            <span class="input-group-text" id="basic-addon20">Youtube</span>
+            <input type="text" name="youtube" value="{% if site_setting.youtube %}{{ site_setting.youtube }}{% endif %}" class="form-control" placeholder="Youtube" aria-label="Youtube" aria-describedby="basic-addon20">
+        </div>
+
+        <div class="input-group mb-3">
+            <span class="input-group-text" id="basic-addon21">Twitter</span>
+            <input type="text" name="twitter" value="{% if site_setting.twitter %}{{ site_setting.twitter }}{% endif %}" class="form-control" placeholder="Twitter" aria-label="Twitter" aria-describedby="basic-addon21">
+        </div>
+
+        <div class="input-group mb-3">
+            <span class="input-group-text" id="basic-addon22">Github</span>
+            <input type="text" name="github" value="{% if site_setting.github %}{{ site_setting.github }}{% endif %}" class="form-control" placeholder="Github" aria-label="Github" aria-describedby="basic-addon22">
+        </div>
+
+        <div class="input-group mb-3">
+            <span class="input-group-text" id="basic-addon23">Address</span>
+            <input type="text" name="address" value="{% if site_setting.address %}{{ site_setting.address }}{% endif %}" class="form-control" placeholder="Address" aria-label="Address" aria-describedby="basic-addon23">
+        </div>
+
+        <div class="img-uploader-content mb-3">
+            <span class="input-group">Favicon</span>
+            <input type="file" class="filepond form-control" name="favicon"/>
+        </div>
+
+        <div class="img-uploader-content mb-3">
+            <span class="input-group">Logo</span>
+            <input type="file" class="filepond form-control" name="logo"/>
+        </div>
+
+        <div class="img-uploader-content mb-3">
+            <span class="input-group">Image</span>
+            <input type="file" class="filepond form-control" name="image"/>
+        </div>
+
+        <div class="video-uploader-content mb-3">
+            <span class="input-group">Video</span>
+            <input type="file" class="filepond form-control" name="video"/>
+        </div>
+
+        <div class="video-uploader-content mb-3">
+            <span class="input-group">Resume</span>
+            <input type="file" class="filepond form-control" name="resume"/>
+        </div>
+
+
+        <div class="input-group mb-3">
+            <input type="submit" name="save" value="Save" class="mt-4 btn btn-primary">
+        </div>
+    </form>
+
+<script>
+
+new TomSelect("#select-beast",{
+    create: true,
+    sortField: {
+        field: "text",
+        direction: "asc"
+    }
+});
+</script>
+
+{% endblock %}
+
