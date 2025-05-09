@@ -3,7 +3,7 @@
 {% block content %}
 
 
-    <form method="POST" enctype="multipart/form-data" action="{% url 'admin_panel.add_subscription_info' %}">
+    <form method="POST" enctype="multipart/form-data" action="{% url 'add_subscription_info' %}">
         {% csrf_token %}
         <div class="input-group mb-3">
             <span class="input-group-text" id="basic-addon1">Title</span>
