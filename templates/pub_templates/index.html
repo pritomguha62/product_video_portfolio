@@ -61,7 +61,7 @@
                         <div class="e-hosted-video elementor-wrapper elementor-open-inline">
 
                             {% if portfolio.video.url is not none %}
-                            <video class="elementor-video" src="{{ portfolio.video.url }}" controls="" preload="metadata" controlsList="nodownload"></video>
+                            <video class="elementor-video video_frame" src="{{ portfolio.video.url }}" controls="" preload="metadata" controlsList="nodownload"  autoplay loop muted></video>
                             {% else %}
                             {{ portfolio.link|safe }}
                             {% endif %}
@@ -238,7 +238,7 @@
                     </div>
                 </div> {% endcomment %}
                 {% if portfolio.video.url is not none %}
-                <video class="elementor-video" src="{{ portfolio.video.url }}" controls="" preload="metadata" controlsList="nodownload"></video>
+                <video class="elementor-video video_frame" src="{{ portfolio.video.url }}" controls="" preload="metadata" controlsList="nodownload" autoplay loop muted></video>
                 {% else %}
                 {{ portfolio.link|safe }}
                 {% endif %}
@@ -822,6 +822,9 @@
         </div>
     </div>
 </div>
+
+
+
 {% endblock %}
             
             
