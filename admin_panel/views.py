@@ -31,7 +31,9 @@ def face_login(request):
     return render(request, 'admin_templates/face_login.html')
 
 def signup(request):
-    return render(request, 'admin_templates/admin_signup.html')
+    
+    site_setting = Site_setting.objects.last()
+    return render(request, 'admin_templates/admin_signup.html', {'site_setting':site_setting})
 
 def signin_info(request):
 
