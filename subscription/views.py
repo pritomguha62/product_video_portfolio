@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect, get_object_or_404
 from .models import *
 import os
 from django.http import HttpResponseRedirect, HttpResponse
+from django.urls import reverse
 from django.contrib import messages
 from datetime import datetime
 from site_setting.models import Site_setting
@@ -89,6 +90,8 @@ def send_mail_info(request):
         
         for subscription in seubscriptions:
     
+            logo = request.build_absolute_uri(site_setting.logo.url) if site_setting.logo else None
+            home = request.build_absolute_uri(reverse('home'))
             name = request.POST.get("name", site_setting.name)
             email = request.POST.get("email", site_setting.email)
             service = request.POST.get("service", "")
@@ -96,6 +99,8 @@ def send_mail_info(request):
             message = request.POST.get("message", "")
             # recipient = request.POST.get("email", "recipient@example.com")
             html_content = render_to_string("pub_templates/send_mail.html", {
+                "logo": logo,
+                "home": home,
                 "name": name,
                 "email": email,
                 # "service": service,
